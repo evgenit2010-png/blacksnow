@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BlackSnow Nails — студия маникюра</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Roboto:wght@300;400;500;700&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background: #0d0d0d;
+            color: #e0e0e0;
+            background-image: 
+                radial-gradient(circle at 10% 20%, rgba(200, 50, 120, 0.05) 0%, transparent 60%),
+                radial-gradient(circle at 90% 80%, rgba(200, 50, 120, 0.03) 0%, transparent 50%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px 40px;
+        }
+
+        .deco-border {
+            height: 3px;
+            background: linear-gradient(90deg, transparent, #ff66aa, #ffffff, #ff66aa, transparent);
+            opacity: 0.6;
+            margin-bottom: 5px;
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 25px 0 20px;
+            flex-wrap: wrap;
+            gap: 15px;
+            border-bottom: 2px solid #2a1a1a;
+            position: relative;
+        }
+
+        .header::after {
+            content: "✦ ✦ ✦";
+            position: absolute;
+            bottom: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #0d0d0d;
+            padding: 0 20px;
+            color: #ff66aa;
+            font-size: 14px;
+            letter-spacing: 8px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo img {
+            height: 60px;
+            width: auto;
+            display: block;
+        }
+
+        .logo p {
+            font-size: 14px;
+            color: #aaaaaa;
+            letter-spacing: 3px;
+            font-weight: 300;
+            text-transform: uppercase;
+        }
+
+        .contacts-header a {
+            color: #cccccc;
+            text-decoration: none;
+            margin-left: 20px;
+            font-size: 15px;
+            border-bottom: 1px solid #2a1a1a;
+            padding-bottom: 3px;
+            transition: 0.3s;
+        }
+
+        .contacts-header a:hover {
+            color: #ff66aa;
+            border-bottom-color: #ff66aa;
+        }
+
+        .hero {
+            background: linear-gradient(145deg, #141414, #0d0d0d);
+            border: 1px solid #2a1a1a;
+            border-radius: 30px;
+            padding: 50px 45px;
+            margin: 35px 0 45px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            position: relative;
+            box-shadow: 0 0 60px rgba(200, 50, 120, 0.05);
+        }
+
+        .hero::before {
+            content: "✧ ✧ ✧";
+            position: absolute;
+            top: 15px;
+            right: 30px;
+            font-size: 18px;
+            color: #2a1a1a;
+            letter-spacing: 10px;
+        }
+
+        .hero-text h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 42px;
+            color: #ffffff;
+            margin-bottom: 10px;
+            line-height: 1.2;
+        }
+
+        .hero-text h2 span {
+            color: #ff66aa;
+        }
+
+        .hero-text p {
+            font-size: 17px;
+            color: #aaaaaa;
+            max-width: 450px;
+            font-weight: 300;
+            line-height: 1.6;
+        }
+
+        .hero-image {
+            width: 140px;
+            height: 140px;
+            animation: floatSnow 4s ease-in-out infinite;
+        }
+
+        .hero-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            display: block;
+        }
+
+        @keyframes floatSnow {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-18px); }
+        }
+
+        .hero-tag {
+            display: inline-block;
+            background: #1a1a1a;
+            color: #ff66aa;
+            padding: 6px 24px;
+            border-radius: 30px;
+            font-size: 12px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            border: 1px solid #2a1a1a;
+            margin-top: 14px;
+        }
+
+        .schedule-block {
+            background: #141414;
+            border: 1px solid #2a1a1a;
+            border-radius: 30px;
+            padding: 30px 35px;
+            margin: 30px 0 40px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .schedule-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 15px;
+            color: #cccccc;
+            margin: 4px 0;
+        }
+
+        .schedule-item .label {
+            color: #888888;
+            font-weight: 300;
+        }
+
+        .schedule-item .value {
+            color: #ffffff;
+            font-weight: 500;
+        }
+
+        .schedule-item .highlight {
+            color: #ff66aa;
+            font-weight: 500;
+        }
+
+        .schedule-divider {
+            color: #2a1a1a;
+            font-size: 20px;
+        }
+
+        .services-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 34px;
+            text-align: center;
+            color: #ffffff;
+            margin: 40px 0 30px;
+            letter-spacing: 2px;
+        }
+
+        .services-title small {
+            font-family: 'Roboto', sans-serif;
+            font-size: 14px;
+            font-weight: 300;
+            display: block;
+            color: #888888;
+            letter-spacing: 6px;
+            text-transform: uppercase;
+            margin-top: 4px;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+        }
+
+        .service-card {
+            background: #141414;
+            border: 1px solid #2a1a1a;
+            border-radius: 20px;
+            padding: 24px 20px;
+            transition: 0.4s;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .service-card::after {
+            content: "✦";
+            position: absolute;
+            bottom: 12px;
+            right: 18px;
+            color: #2a1a1a;
+            font-size: 18px;
+        }
+
+        .service-card:hover {
+            transform: translateY(-6px);
+            border-color: #ff66aa;
+            box-shadow: 0 8px 30px rgba(200, 50, 120, 0.1);
+        }
+
+        .service-card h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 20px;
+            color: #ffffff;
+            margin-bottom: 6px;
+        }
+
+        .service-card .desc {
+            font-size: 14px;
+            color: #aaaaaa;
+            line-height: 1.6;
+            margin-bottom: 10px;
+            font-weight: 300;
+            flex-grow: 1;
+        }
+
+        .service-card .details {
+            font-size: 13px;
+            color: #888888;
+            line-height: 1.5;
+            border-top: 1px solid #1a1a1a;
+            padding-top: 10px;
+            margin-top: 4px;
+        }
+
+        .service-card .details span {
+            display: inline-block;
+            background: #1a1a1a;
+            padding: 2px 12px;
+            border-radius: 16px;
+            font-size: 11px;
+            color: #cccccc;
+            margin-right: 6px;
+            margin-bottom: 4px;
+        }
+
+        .service-card .price {
+            font-weight: 500;
+            color: #ff66aa;
+            font-size: 18px;
+            border-top: 1px solid #1a1a1a;
+            padding-top: 10px;
+            margin-top: 6px;
+        }
+
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 20px;
+            margin: 50px 0 30px;
+        }
+
+        .feature {
+            text-align: center;
+            padding: 20px;
+            background: #141414;
+            border: 1px solid #1a1a1a;
+            border-radius: 20px;
+        }
+
+        .feature h4 {
+            font-family: 'Playfair Display', serif;
+            font-size: 18px;
+            color: #ffffff;
+        }
+
+        .feature p {
+            font-size: 13px;
+            color: #888888;
+            font-weight: 300;
+        }
+
+        .contacts-block {
+            background: #141414;
+            border: 1px solid #1a1a1a;
+            border-radius: 30px;
+            padding: 35px 30px;
+            margin: 40px 0 30px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .contacts-block .item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 16px;
+            margin: 6px 0;
+            color: #cccccc;
+        }
+
+        .contacts-block a {
+            color: #cccccc;
+            text-decoration: none;
+            border-bottom: 1px solid #1a1a1a;
+            padding-bottom: 2px;
+            transition: 0.3s;
+        }
+
+        .contacts-block a:hover {
+            color: #ff66aa;
+            border-bottom-color: #ff66aa;
+        }
+
+        .contacts-block .address {
+            font-size: 14px;
+            color: #888888;
+            margin-top: 4px;
+        }
+
+        .btn-book {
+            background: #1a1a1a;
+            color: #ffffff;
+            padding: 14px 40px;
+            border-radius: 40px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: 0.3s;
+            display: inline-block;
+            border: 1px solid #2a1a1a;
+            letter-spacing: 2px;
+            font-size: 14px;
+            text-transform: uppercase;
+        }
+
+        .btn-book:hover {
+            background: #ff66aa;
+            color: #0d0d0d;
+            border-color: #ff66aa;
+            transform: scale(1.02);
+            box-shadow: 0 0 30px rgba(200, 50, 120, 0.2);
+        }
+
+        .footer {
+            text-align: center;
+            padding-top: 30px;
+            font-size: 13px;
+            color: #444444;
+            border-top: 1px solid #1a1a1a;
+            margin-top: 20px;
+            letter-spacing: 2px;
+        }
+
+        .footer::before {
+            content: "✧ ✧ ✧";
+            display: block;
+            font-size: 14px;
+            color: #2a1a1a;
+            letter-spacing: 8px;
+            margin-bottom: 10px;
+        }
+
+        .developer-credit {
+            text-align: center;
+            font-size: 10px;
+            color: #333333;
+            margin-top: 20px;
+            padding-top: 12px;
+            border-top: 1px solid #1a1a1a;
+            letter-spacing: 1px;
+        }
+
+        .developer-credit a {
+            color: #444444;
+            text-decoration: none;
+            border-bottom: 1px dotted #2a1a1a;
+        }
+
+        .developer-credit a:hover {
+            color: #ff66aa;
+        }
+
+        @media (max-width: 750px) {
+            .header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .contacts-header a {
+                margin-left: 0;
+                margin-right: 18px;
+            }
+            .hero {
+                flex-direction: column;
+                text-align: center;
+                padding: 30px 20px;
+            }
+            .hero-text p {
+                max-width: 100%;
+            }
+            .hero-image {
+                width: 100px;
+                height: 100px;
+                margin-top: 15px;
+            }
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+            .schedule-block {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
+                padding: 24px 20px;
+            }
+            .schedule-divider {
+                display: none;
+            }
+            .contacts-block {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 16px;
+            }
+            .logo img {
+                height: 45px;
+            }
+        }
+
+        @media (max-width: 450px) {
+            .hero-text h2 {
+                font-size: 30px;
+            }
+            .hero-image {
+                width: 70px;
+                height: 70px;
+            }
+            .logo img {
+                height: 35px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="deco-border"></div>
+
+    <div class="container">
+
+        <header class="header">
+            <div class="logo">
+                <img src="logo.png" alt="BlackSnow Nails">
+                <p>студия маникюра</p>
+            </div>
+            <div class="contacts-header">
+                <a href="tel:+79000000000">+7 (900) 000-00-00</a>
+                <a href="https://t.me/black_snow_nails" target="_blank">Telegram</a>
+            </div>
+        </header>
+
+        <section class="hero">
+            <div class="hero-text">
+                <h2>Контраст, который <span>притягивает</span></h2>
+                <p>Маникюр, педикюр и дизайн ногтей в черно-бело-розовой эстетике. Стиль, который не оставляет равнодушным.</p>
+                <span class="hero-tag">открыты с 2025</span>
+            </div>
+            <div class="hero-image">
+                <img src="snowflake.png" alt="BlackSnow">
+            </div>
+        </section>
+
+        <div class="schedule-block">
+            <div class="schedule-item">
+                <span class="label">Режим работы:</span>
+                <span class="value">11:00 – 21:00</span>
+            </div>
+            <div class="schedule-divider">|</div>
+            <div class="schedule-item">
+                <span class="label">Выходные:</span>
+                <span class="highlight">воскресенье</span>
+            </div>
+            <div class="schedule-divider">|</div>
+            <div class="schedule-item">
+                <span class="label">Запись:</span>
+                <span class="value">по предварительной записи</span>
+            </div>
+        </div>
+
+        <h2 class="services-title">
+            Наши услуги
+            <small>— для твоей красоты —</small>
+        </h2>
+
+        <div class="services-grid">
+
+            <div class="service-card">
+                <h3>Классический маникюр</h3>
+                <div class="desc">
+                    Аккуратная обработка кутикулы, придание идеальной формы, покрытие гель-лаком. Подходит для любой длины ногтей. После процедуры — легкий массаж кистей.
+                </div>
+                <div class="details">
+                    <span>1–1.5 часа</span>
+                    <span>для всех типов ногтей</span>
+                </div>
+                <div class="price">от 800 ₽</div>
+            </div>
+
+            <div class="service-card">
+                <h3>Маникюр с дизайном</h3>
+                <div class="desc">
+                    Любой дизайн на ваш выбор: градиент, стразы, фольга, минималистичные линии или сложные авторские узоры. Реализуем даже самые смелые идеи.
+                </div>
+                <div class="details">
+                    <span>1.5–2 часа</span>
+                    <span>индивидуальный эскиз</span>
+                </div>
+                <div class="price">от 1 200 ₽</div>
+            </div>
+
+            <div class="service-card">
+                <h3>Педикюр</h3>
+                <div class="desc">
+                    Аппаратный или классический педикюр с полной обработкой стоп, удалением огрубевшей кожи, увлажнением и покрытием. Ноги будут ухоженными долгое время.
+                </div>
+                <div class="details">
+                    <span>1.5–2 часа</span>
+                    <span>с массажем стоп</span>
+                </div>
+                <div class="price">от 1 500 ₽</div>
+            </div>
+
+            <div class="service-card">
+                <h3>Наращивание ногтей</h3>
+                <div class="desc">
+                    Наращивание гелем или акрилом на любой вкус: от натуральной длины до экстравагантных форм. Крепкие, легкие и естественно выглядящие ногти.
+                </div>
+                <div class="details">
+                    <span>2–2.5 часа</span>
+                    <span>коррекция через 3–4 недели</span>
+                </div>
+                <div class="price">от 2 000 ₽</div>
+            </div>
+
+            <div class="service-card">
+                <h3>Дизайн + покрытие</h3>
+                <div class="desc">
+                    Покрытие гель-лаком с дизайном. Стойкость до 4 недель. Комбинируем техники, текстуры и цвета для уникального результата.
+                </div>
+                <div class="details">
+                    <span>1–1.5 часа</span>
+                    <span>более 200 оттенков</span>
+                </div>
+                <div class="price">от 1 500 ₽</div>
+            </div>
+
+            <div class="service-card">
+                <h3>СПА-уход за руками</h3>
+                <div class="desc">
+                    Глубокое восстановление кожи и ногтей: пилинг, питательные маски, парафинотерапия и расслабляющий массаж. Идеально после зимы или для подготовки к событию.
+                </div>
+                <div class="details">
+                    <span>1 час</span>
+                    <span>рекомендуется курсом</span>
+                </div>
+                <div class="price">от 1 000 ₽</div>
+            </div>
+
+        </div>
+
+        <div class="features">
+            <div class="feature">
+                <h4>Стерильность</h4>
+                <p>Одноразовые инструменты и автоклавирование</p>
+            </div>
+            <div class="feature">
+                <h4>Натуральные материалы</h4>
+                <p>Только проверенные бренды</p>
+            </div>
+            <div class="feature">
+                <h4>Уютная атмосфера</h4>
+                <p>Теплая обстановка и внимание к каждому клиенту</p>
+            </div>
+        </div>
+
+        <div class="contacts-block">
+            <div>
+                <div class="item">Телефон: <a href="tel:+79000000000">+7 (900) 000-00-00</a></div>
+                <div class="item">Telegram: <a href="https://t.me/black_snow_nails" target="_blank">@black_snow_nails</a></div>
+                <div class="address">г. Темрюк, ул. Ленина, д. 147, 2 этаж</div>
+            </div>
+            <div>
+                <a href="https://t.me/black_snow_nails" target="_blank" class="btn-book">Записаться</a>
+            </div>
+        </div>
+
+        <footer class="footer">
+            ✧ ✧ ✧
+            BlackSnow Nails — студия маникюра · 2026
+        </footer>
+
+        <div class="developer-credit">
+            Сайт и Telegram-бот: 
+            <a href="https://t.me/Iwkgjd" target="_blank">@Iwkgjd</a> · 
+            <a href="tel:+79933262602">+7(993)326-26-02</a> · разработка и поддержка
+        </div>
+
+    </div>
+
+    <div class="deco-border"></div>
+
+</body>
+</html>

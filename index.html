@@ -52,19 +52,6 @@
             position: relative;
         }
 
-        .header::after {
-            content: "✦ ✦ ✦";
-            position: absolute;
-            bottom: -12px;
-            left: 50%;
-            transform: translateX(-50%);
-            background: #0d0d0d;
-            padding: 0 20px;
-            color: #ff66aa;
-            font-size: 14px;
-            letter-spacing: 8px;
-        }
-
         .logo {
             display: flex;
             align-items: center;
@@ -112,16 +99,6 @@
             align-items: center;
             position: relative;
             box-shadow: 0 0 60px rgba(200, 50, 120, 0.05);
-        }
-
-        .hero::before {
-            content: "✧ ✧ ✧";
-            position: absolute;
-            top: 15px;
-            right: 30px;
-            font-size: 18px;
-            color: #2a1a1a;
-            letter-spacing: 10px;
         }
 
         .hero-text h2 {
@@ -219,6 +196,13 @@
         .schedule-divider {
             color: #2a1a1a;
             font-size: 20px;
+        }
+
+        .divider {
+            height: 1px;
+            background: #2a1a1a;
+            margin: 30px 0;
+            opacity: 0.5;
         }
 
         .services-title {
@@ -425,15 +409,6 @@
             letter-spacing: 2px;
         }
 
-        .footer::before {
-            content: "✧ ✧ ✧";
-            display: block;
-            font-size: 14px;
-            color: #2a1a1a;
-            letter-spacing: 8px;
-            margin-bottom: 10px;
-        }
-
         .developer-credit {
             text-align: center;
             font-size: 10px;
@@ -498,6 +473,11 @@
             .logo img {
                 height: 45px;
             }
+            .services-title small {
+                font-size: 13px;
+                letter-spacing: 3px;
+                color: #888888;
+            }
         }
 
         @media (max-width: 450px) {
@@ -550,7 +530,7 @@
             <div class="schedule-divider">|</div>
             <div class="schedule-item">
                 <span class="label">Выходные:</span>
-                <span class="highlight">воскресенье,суббота</span>
+                <span class="highlight">суббота, воскресенье</span>
             </div>
             <div class="schedule-divider">|</div>
             <div class="schedule-item">
@@ -558,6 +538,8 @@
                 <span class="value">по предварительной записи</span>
             </div>
         </div>
+
+        <div class="divider"></div>
 
         <h2 class="services-title">
             Наши услуги
